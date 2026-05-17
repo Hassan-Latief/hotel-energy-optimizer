@@ -45,7 +45,7 @@ st.markdown("""
             Hotel Booking Demand Prediction
         </h3>
         <p style='color: #6EE7B7; font-size: 16px;'>
-            Powered by XGBoost Machine Learning | 
+            Powered by Random Forest Machine Learning | 
             119,390 Real Booking Records
         </p>
     </div>
@@ -72,7 +72,7 @@ metrics = [
     (c1, "📁", "Total Records", "119,390",  "#064E3B", "#10B981"),
     (c2, "❌", "Cancel Rate",   "37%",       "#7F1D1D", "#EF4444"),
     (c3, "🤖", "ML Models",    "3",          "#1E3A5F", "#3B82F6"),
-    (c4, "🎯", "Best Accuracy","~88%",       "#3B0764", "#8B5CF6"),
+    (c4, "🎯", "Best Accuracy","~81.28%",       "#3B0764", "#8B5CF6"),
     (c5, "⚡", "Energy/Room",  "50 KWh",    "#78350F", "#F59E0B"),
     (c6, "📄", "App Pages",    "5",          "#064E3B", "#34D399"),
 ]
