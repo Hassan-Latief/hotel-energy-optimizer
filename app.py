@@ -51,7 +51,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# ── Project At A Glance ──────────────────────────────────────────────────────
+# ── Project At A Glance ──────────────────────────────────────────
 st.subheader("📊 Project At A Glance")
 
 c1, c2, c3, c4, c5, c6 = st.columns(6)
@@ -72,9 +72,9 @@ metrics = [
     (c1, "📁", "Total Records", "119,390",  "#064E3B", "#10B981"),
     (c2, "❌", "Cancel Rate",   "37%",       "#7F1D1D", "#EF4444"),
     (c3, "🤖", "ML Models",    "3",          "#1E3A5F", "#3B82F6"),
-    (c4, "🎯", "Best Accuracy","~81.28%",       "#3B0764", "#8B5CF6"),
+    (c4, "🎯", "Best Accuracy","81.28%",     "#3B0764", "#8B5CF6"),
     (c5, "⚡", "Energy/Room",  "50 KWh",    "#78350F", "#F59E0B"),
-    (c6, "📄", "App Pages",    "5",          "#064E3B", "#34D399"),
+    (c6, "📄", "App Pages",    "7",          "#064E3B", "#34D399"),
 ]
 
 for col, icon, label, value, bg1, bg2 in metrics:
@@ -91,7 +91,7 @@ for col, icon, label, value, bg1, bg2 in metrics:
 
 st.divider()
 
-# ── Project Overview + Datasets ──────────────────────────────────────────────
+# ── Project Overview + Datasets ──────────────────────────────────
 col1, col2 = st.columns(2)
 
 with col1:
@@ -106,19 +106,23 @@ with col1:
         '>
             <h3 style='color: #A7F3D0;'>📋 Project Overview</h3>
             <p style='color: #FFFFFF; line-height: 1.8;'>
-                Hotel Energy Optimizer is an intelligent decision support system 
-                that helps hotel managers reduce energy consumption by predicting 
-                which bookings will be cancelled.
+                Hotel Energy Optimizer is an intelligent 
+                decision support system that helps hotel 
+                managers reduce energy consumption by 
+                predicting which bookings will be cancelled.
             </p>
             <p style='color: #FFFFFF; line-height: 1.8;'>
-                Empty rooms waste energy through unnecessary heating, cooling and 
-                lighting. By predicting cancellations accurately, hotels can switch 
-                off energy in empty rooms proactively — saving money and reducing 
-                carbon emissions.
+                Empty rooms waste energy through unnecessary 
+                heating, cooling and lighting. By predicting 
+                cancellations accurately, hotels can switch 
+                off energy in empty rooms proactively saving 
+                money and reducing carbon emissions.
             </p>
             <p style='color: #FFFFFF; line-height: 1.8;'>
-                The system uses three machine learning models and selects the best 
-                performing XGBoost model to make predictions with up to 88% accuracy.
+                The system uses three machine learning models 
+                and selects the best performing Random Forest 
+                model which achieved 81.28% accuracy on the 
+                hotel booking dataset.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -139,31 +143,55 @@ with col2:
                 border-radius: 8px;
                 margin-bottom: 12px;
             '>
-                <b style='color: #6EE7B7;'>🏨 Hotel Booking Demand</b><br>
-                <small style='color: #A7F3D0;'>Source: Kaggle (Open Source)</small><br>
-                <span style='color: #FFFFFF;'>✅ 119,390 booking records</span><br>
-                <span style='color: #FFFFFF;'>✅ 32 features</span><br>
-                <span style='color: #FFFFFF;'>✅ 2015 - 2017 data</span><br>
-                <span style='color: #FFFFFF;'>✅ City and Resort hotels</span>
+                <b style='color: #6EE7B7;'>
+                    🏨 Hotel Booking Demand
+                </b><br>
+                <small style='color: #A7F3D0;'>
+                    Source: Kaggle (Open Source)
+                </small><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ 119,390 booking records
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ 32 features
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ 2015 - 2017 data
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ City and Resort hotels
+                </span>
             </div>
             <div style='
                 background: #78350F;
                 padding: 12px;
                 border-radius: 8px;
             '>
-                <b style='color: #FCD34D;'>⚡ Energy Efficiency Dataset</b><br>
-                <small style='color: #FDE68A;'>Source: UCI Machine Learning Repository</small><br>
-                <span style='color: #FFFFFF;'>✅ 768 building records</span><br>
-                <span style='color: #FFFFFF;'>✅ 10 energy features</span><br>
-                <span style='color: #FFFFFF;'>✅ Heating and cooling loads</span><br>
-                <span style='color: #FFFFFF;'>✅ Building characteristics</span>
+                <b style='color: #FCD34D;'>
+                    ⚡ Energy Efficiency Dataset
+                </b><br>
+                <small style='color: #FDE68A;'>
+                    Source: UCI Machine Learning Repository
+                </small><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ 768 building records
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ 10 energy features
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ Heating and cooling loads
+                </span><br>
+                <span style='color: #FFFFFF;'>
+                    ✅ Building characteristics
+                </span>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
 st.divider()
 
-# ── How To Use ───────────────────────────────────────────────────────────────
+# ── How To Use ───────────────────────────────────────────────────
 st.subheader("🗺️ How To Use This App")
 
 s1, s2, s3, s4, s5 = st.columns(5)
@@ -171,71 +199,91 @@ s1, s2, s3, s4, s5 = st.columns(5)
 with s1:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #10B981, #059669);
+            background: linear-gradient(
+                135deg, #10B981, #059669
+            );
             padding: 20px; border-radius: 12px;
-            text-align: center; color: white; height: 180px;
+            text-align: center; color: white;
+            height: 180px;
         '>
             <h2>📊</h2>
             <b>Step 1</b><br>Dashboard<br>
-            <small>View booking trends and patterns</small>
+            <small>View booking trends
+            and patterns</small>
         </div>
     """, unsafe_allow_html=True)
 
 with s2:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #F59E0B, #D97706);
+            background: linear-gradient(
+                135deg, #F59E0B, #D97706
+            );
             padding: 20px; border-radius: 12px;
-            text-align: center; color: white; height: 180px;
+            text-align: center; color: white;
+            height: 180px;
         '>
             <h2>🤖</h2>
             <b>Step 2</b><br>Prediction<br>
-            <small>Predict booking cancellation risk</small>
+            <small>Predict booking
+            cancellation risk</small>
         </div>
     """, unsafe_allow_html=True)
 
 with s3:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #064E3B, #065F46);
+            background: linear-gradient(
+                135deg, #064E3B, #065F46
+            );
             padding: 20px; border-radius: 12px;
-            text-align: center; color: white; height: 180px;
+            text-align: center; color: white;
+            height: 180px;
         '>
             <h2>⚡</h2>
             <b>Step 3</b><br>Energy Calculator<br>
-            <small>Calculate energy and money savings</small>
+            <small>Calculate energy
+            and money savings</small>
         </div>
     """, unsafe_allow_html=True)
 
 with s4:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #34D399, #10B981);
+            background: linear-gradient(
+                135deg, #34D399, #10B981
+            );
             padding: 20px; border-radius: 12px;
-            text-align: center; color: white; height: 180px;
+            text-align: center; color: white;
+            height: 180px;
         '>
             <h2>📈</h2>
             <b>Step 4</b><br>Model Evaluation<br>
-            <small>View model accuracy and comparison</small>
+            <small>View model accuracy
+            and comparison</small>
         </div>
     """, unsafe_allow_html=True)
 
 with s5:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #FBBF24, #F59E0B);
+            background: linear-gradient(
+                135deg, #FBBF24, #F59E0B
+            );
             padding: 20px; border-radius: 12px;
-            text-align: center; color: white; height: 180px;
+            text-align: center; color: white;
+            height: 180px;
         '>
             <h2>🗺️</h2>
             <b>Step 5</b><br>Dev Journey<br>
-            <small>View project development timeline</small>
+            <small>View project
+            development timeline</small>
         </div>
     """, unsafe_allow_html=True)
 
 st.divider()
 
-# ── Key Features ─────────────────────────────────────────────────────────────
+# ── Key Features ─────────────────────────────────────────────────
 st.subheader("🌟 Key Features")
 
 f1, f2, f3 = st.columns(3)
@@ -243,16 +291,21 @@ f1, f2, f3 = st.columns(3)
 with f1:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #065F46, #10B981);
+            background: linear-gradient(
+                135deg, #065F46, #10B981
+            );
             padding: 22px; border-radius: 12px;
             box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
         '>
-            <h4 style='color: #A7F3D0; margin-top: 0;'>🤖 Advanced ML Models</h4>
-            <p style='color: #FFFFFF; line-height: 1.7; margin: 0;'>
+            <h4 style='color: #A7F3D0; margin-top: 0;'>
+                🤖 Advanced ML Models
+            </h4>
+            <p style='color: #FFFFFF;
+            line-height: 1.7; margin: 0;'>
                 Three models trained and compared:
                 Logistic Regression, Random Forest
-                and XGBoost. Best model selected
-                automatically with ~88% accuracy.
+                and XGBoost. Random Forest selected
+                as best model with 81.28% accuracy.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -260,12 +313,17 @@ with f1:
 with f2:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #1E3A5F, #3B82F6);
+            background: linear-gradient(
+                135deg, #1E3A5F, #3B82F6
+            );
             padding: 22px; border-radius: 12px;
             box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
         '>
-            <h4 style='color: #BFDBFE; margin-top: 0;'>⚡ Energy Calculator</h4>
-            <p style='color: #FFFFFF; line-height: 1.7; margin: 0;'>
+            <h4 style='color: #BFDBFE; margin-top: 0;'>
+                ⚡ Energy Calculator
+            </h4>
+            <p style='color: #FFFFFF;
+            line-height: 1.7; margin: 0;'>
                 Unique feature that converts ML
                 predictions into real energy savings
                 in KWh, money saved in dollars and
@@ -277,12 +335,17 @@ with f2:
 with f3:
     st.markdown("""
         <div style='
-            background: linear-gradient(135deg, #78350F, #F59E0B);
+            background: linear-gradient(
+                135deg, #78350F, #F59E0B
+            );
             padding: 22px; border-radius: 12px;
             box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
         '>
-            <h4 style='color: #FDE68A; margin-top: 0;'>📊 Interactive Dashboard</h4>
-            <p style='color: #FFFFFF; line-height: 1.7; margin: 0;'>
+            <h4 style='color: #FDE68A; margin-top: 0;'>
+                📊 Interactive Dashboard
+            </h4>
+            <p style='color: #FFFFFF;
+            line-height: 1.7; margin: 0;'>
                 15+ professional interactive charts
                 including heatmaps, bar charts, pie
                 charts, scatter plots and a complete
@@ -293,19 +356,25 @@ with f3:
 
 st.divider()
 
-# ── Footer ───────────────────────────────────────────────────────────────────
+# ── Footer ───────────────────────────────────────────────────────
 st.markdown("""
     <div style='
-        background: linear-gradient(135deg, #064E3B 0%, #10B981 100%);
-        padding: 20px; border-radius: 10px; text-align: center;
+        background: linear-gradient(
+            135deg, #064E3B 0%, #10B981 100%
+        );
+        padding: 20px; border-radius: 10px;
+        text-align: center;
     '>
         <p style='color: white; margin: 0;'>
-            🏨 Hotel Energy Optimizer | 
-            Energy Efficiency Optimization using Hotel Booking Demand Prediction
+            🏨 Hotel Energy Optimizer |
+            Energy Efficiency Optimization
+            using Hotel Booking Demand Prediction
         </p>
-        <p style='color: #A7F3D0; font-size: 13px; margin: 5px 0 0 0;'>
-            Dataset: Hotel Booking Demand (Kaggle) | 
-            UCI Energy Efficiency | Built with Python & Streamlit
+        <p style='color: #A7F3D0; font-size: 13px;
+        margin: 5px 0 0 0;'>
+            Dataset: Hotel Booking Demand (Kaggle) |
+            UCI Energy Efficiency |
+            Built with Python and Streamlit
         </p>
     </div>
 """, unsafe_allow_html=True)
