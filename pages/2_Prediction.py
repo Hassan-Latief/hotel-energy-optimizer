@@ -41,9 +41,13 @@ df = load_data()
 
 # Instructions
 st.info("""
-    👋 Fill in the booking details below and 
-    click **Predict** to find out if the booking 
+    👋 Fill in the booking details below and
+    click Predict to find out if the booking
     will be cancelled or not!
+
+    🤖 Powered by Random Forest Classifier
+    with 81.28% accuracy — the best performing
+    model in this project.
 """)
 
 st.subheader("📋 Enter Booking Details")
@@ -107,7 +111,7 @@ with col2:
 
     customer_type = st.selectbox(
         "👥 Customer Type",
-        ["Transient", "Contract", 
+        ["Transient", "Contract",
          "Transient-Party", "Group"]
     )
 
@@ -152,6 +156,30 @@ with col2:
     )
 
 st.divider()
+
+# Model Info Box
+st.markdown("""
+    <div style='
+        background-color: #D5F5E3;
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 6px solid #1E8449;
+        margin-bottom: 15px;
+    '>
+        <h4 style='color: #1A1A1A; margin: 0;'>
+            🤖 Model Information
+        </h4>
+        <p style='color: #1A1A1A; margin: 5px 0 0 0;'>
+            ✅ Algorithm: Random Forest Classifier
+            (Best Model)<br>
+            ✅ Accuracy: 81.28% on test set<br>
+            ✅ Compared against: Logistic
+            Regression (76%) and XGBoost (77.99%)<br>
+            ✅ Training data: 119,390 hotel
+            booking records
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
 # Predict Button
 if st.button(
@@ -239,23 +267,23 @@ if st.button(
         if prediction == 1:
             st.error("""
                 ## ❌ HIGH CANCELLATION RISK!
-                
-                This booking is likely to be 
-                **CANCELLED**
-                
-                Hotel should prepare for 
-                potential empty room and 
+
+                This booking is likely to be
+                CANCELLED
+
+                Hotel should prepare for
+                potential empty room and
                 reduce energy usage accordingly
             """)
         else:
             st.success("""
                 ## ✅ LOW CANCELLATION RISK!
-                
-                This booking is likely to 
-                **PROCEED**
-                
-                Hotel should prepare the room 
-                and allocate full energy 
+
+                This booking is likely to
+                PROCEED
+
+                Hotel should prepare the room
+                and allocate full energy
                 resources
             """)
 
@@ -282,7 +310,7 @@ if st.button(
         if prediction == 1:
             st.warning("""
                 **Energy Saving Mode**
-                
+
                 - Turn off HVAC in this room
                 - Reduce lighting to minimum
                 - Estimated saving: 50 KWh
@@ -291,20 +319,38 @@ if st.button(
         else:
             st.info("""
                 **Normal Energy Mode**
-                
+
                 - Maintain normal HVAC
                 - Keep full lighting
                 - Prepare room fully
                 - Standard energy usage
             """)
 
+    # Show model used
+    st.divider()
+    st.markdown("""
+        <div style='
+            background-color: #EBF5FB;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 5px solid #2980B9;
+        '>
+            <p style='color: #1A1A1A; margin: 0;'>
+                🤖 Prediction made by:
+                <b>Random Forest Classifier</b>
+                | Accuracy: <b>81.28%</b>
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
 st.divider()
 
 # Footer
 st.markdown("""
-    <div style='text-align: center; 
+    <div style='text-align: center;
     color: #666666;'>
-        <p>Hotel Energy Optimizer | 
-        Prediction Page</p>
+        <p>Hotel Energy Optimizer |
+        Prediction Page |
+        Powered by Random Forest 81.28%</p>
     </div>
 """, unsafe_allow_html=True)
