@@ -8,4 +8,4 @@ scikit-learn
 xgboost
 openpyxl
 imbalanced-learn
-kaggle
+requests
