@@ -32,9 +32,11 @@ st.divider()
 
 # Instructions
 st.info("""
-    👋 This page shows how well our machine 
-    learning models perform at predicting 
-    hotel booking cancellations!
+    👋 This page shows how well our three
+    machine learning models perform at
+    predicting hotel booking cancellations.
+    Random Forest achieved the best accuracy
+    of 81.28% and is used for all predictions!
 """)
 
 # Load and Prepare Data
@@ -230,7 +232,7 @@ with m1:
     )
 with m2:
     st.metric(
-        "Random Forest",
+        "Random Forest ⭐ Best",
         f"{round(rf_acc*100, 2)}%"
     )
 with m3:
@@ -282,12 +284,12 @@ st.plotly_chart(
 
 st.divider()
 
-# Confusion Matrix
+# Confusion Matrix - NOW RANDOM FOREST
 st.subheader(
-    "🔢 Confusion Matrix (XGBoost)"
+    "🔢 Confusion Matrix (Random Forest - Best Model)"
 )
 
-cm = confusion_matrix(y_test, xgb_pred)
+cm = confusion_matrix(y_test, rf_pred)
 fig2 = px.imshow(
     cm,
     labels=dict(
@@ -297,9 +299,9 @@ fig2 = px.imshow(
     ),
     x=['Not Cancelled', 'Cancelled'],
     y=['Not Cancelled', 'Cancelled'],
-    color_continuous_scale='Blues',
+    color_continuous_scale='Greens',
     text_auto=True,
-    title='XGBoost Confusion Matrix'
+    title='Random Forest Confusion Matrix'
 )
 fig2.update_layout(height=400)
 st.plotly_chart(
@@ -309,12 +311,14 @@ st.plotly_chart(
 
 st.divider()
 
-# Classification Report
-st.subheader("📋 Classification Report")
+# Classification Report - NOW RANDOM FOREST
+st.subheader(
+    "📋 Classification Report (Random Forest)"
+)
 
 report = classification_report(
     y_test,
-    xgb_pred,
+    rf_pred,
     output_dict=True
 )
 report_df = pd.DataFrame(
@@ -363,7 +367,7 @@ fig3 = px.bar(
     orientation='h',
     title='Feature Importance - Random Forest',
     color='Importance',
-    color_continuous_scale='Reds'
+    color_continuous_scale='Greens'
 )
 fig3.update_layout(height=500)
 st.plotly_chart(
@@ -375,29 +379,35 @@ st.divider()
 
 # Best Model Summary
 best_acc = max(lr_acc, rf_acc, xgb_acc)
-if best_acc == xgb_acc:
-    best_name = "XGBoost"
-elif best_acc == rf_acc:
+if best_acc == rf_acc:
     best_name = "Random Forest"
+elif best_acc == xgb_acc:
+    best_name = "XGBoost"
 else:
     best_name = "Logistic Regression"
 
 st.success(f"""
     ## 🏆 Best Model: {best_name}
-    
+
     Accuracy: **{round(best_acc*100, 2)}%**
-    
-    This model is used for all predictions 
-    in this application!
+
+    Random Forest achieved the highest accuracy
+    of {round(rf_acc*100, 2)}% on this dataset.
+    It handles the mix of categorical and
+    numerical hotel booking features very
+    effectively through its ensemble of
+    decision trees making it the best choice
+    for occupancy prediction!
 """)
 
 st.divider()
 
 # Footer
 st.markdown("""
-    <div style='text-align: center; 
+    <div style='text-align: center;
     color: #666666;'>
-        <p>Hotel Energy Optimizer | 
-        Model Evaluation Page</p>
+        <p>Hotel Energy Optimizer |
+        Model Evaluation Page |
+        Best Model: Random Forest 81.28%</p>
     </div>
 """, unsafe_allow_html=True)
