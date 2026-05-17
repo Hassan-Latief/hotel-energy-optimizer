@@ -3,14 +3,14 @@ import pickle
 import os
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def train_and_save_model():
     if os.path.exists('best_model.pkl'):
         print("Model already exists!")
         return
 
-    print("Training model please wait...")
+    print("Training Random Forest model...")
 
     # Load data
     df = pd.read_csv('hotel_bookings.csv')
@@ -114,13 +114,10 @@ def train_and_save_model():
         )
     )
 
-    # Train XGBoost
-    model = XGBClassifier(
+    # Train Random Forest
+    model = RandomForestClassifier(
         n_estimators=100,
-        learning_rate=0.1,
-        max_depth=5,
-        random_state=42,
-        eval_metric='logloss'
+        random_state=42
     )
     model.fit(X_train, y_train)
 
@@ -128,4 +125,4 @@ def train_and_save_model():
     with open('best_model.pkl', 'wb') as f:
         pickle.dump(model, f)
 
-    print("Model trained and saved!")
+    print("Random Forest trained and saved!")
